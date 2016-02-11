@@ -1,0 +1,18 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Available",
+	},
+	Archetyped = 
+	{
+		string Name = "5688197bef238463:Available",
+	},
+	LevelScript = 
+	{
+	},
+},

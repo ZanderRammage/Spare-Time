@@ -1,0 +1,30 @@
+class HardModeCheck : ZilchComponent
+{
+    //Hard = True
+    //Easy = False
+    [Property]
+    var Mode : Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var light = this.Space.FindObjectByName("Light").Sprite.Visible;
+        if(this.Mode == false)
+        {
+            light = false;
+            this.Owner.ForwardRenderer.ClearColor = Real4(40, 40, 40, 1);
+        }
+        
+        else
+        {
+            light = true;
+            this.Owner.ForwardRenderer.ClearColor = Real4(0, 0, 0, 1);
+        }
+    }
+}

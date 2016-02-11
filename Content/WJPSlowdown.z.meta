@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WJPSlowdown",
+		uint64 ResourceId = 569950462481e566,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"WallJump",
+		],
+	},
+},

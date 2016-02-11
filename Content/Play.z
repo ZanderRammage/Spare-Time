@@ -1,0 +1,24 @@
+class Play : ZilchComponent
+{
+    var Play : Level = Level.Find("Level1");
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            this.Space.LoadLevel(this.Play);
+        }
+    }
+}

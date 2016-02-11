@@ -1,0 +1,71 @@
+class NextLevel : ZilchComponent
+{
+    var CurrentLevel : String = "temp";
+    var Level1 : Level = Level.Find("Level1");
+    var Level2 : Level = Level.Find("Level2");
+    var Level3 : Level = Level.Find("Level3");
+    var Level4 : Level = Level.Find("Level4");
+    var Level5 : Level = Level.Find("Level5");
+    var Level6 : Level = Level.Find("Level6");
+    var Level7 : Level = Level.Find("Level7");
+    var Level8 : Level = Level.Find("Level8");
+    var Level9 : Level = Level.Find("Level9");
+    var Level10 : Level = Level.Find("Level10");
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        this.CurrentLevel = this.Space.CurrentLevel.Name as String;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine(this.CurrentLevel);
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Finish")
+        {
+            if(this.CurrentLevel == "Level1")
+            {
+                this.Space.LoadLevel(this.Level2);
+            }
+            if(this.CurrentLevel == "Level2")
+            {
+                this.Space.LoadLevel(this.Level3);
+            }
+            if(this.CurrentLevel == "Level3")
+            {
+                this.Space.LoadLevel(this.Level4);
+            }
+            if(this.CurrentLevel == "Level4")
+            {
+                this.Space.LoadLevel(this.Level5);
+            }
+            if(this.CurrentLevel == "Level5")
+            {
+                this.Space.LoadLevel(this.Level6);
+            }
+            if(this.CurrentLevel == "Level6")
+            {
+                this.Space.LoadLevel(this.Level7);
+            }
+            if(this.CurrentLevel == "Level7")
+            {
+                this.Space.LoadLevel(this.Level8);
+            }
+            if(this.CurrentLevel == "Level7")
+            {
+                this.Space.LoadLevel(this.Level9);
+            }
+            if(this.CurrentLevel == "Level7")
+            {
+                this.Space.LoadLevel(this.Level10);
+            }
+        }
+    }
+}

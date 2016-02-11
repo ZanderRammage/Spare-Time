@@ -1,0 +1,43 @@
+class Idle : ZilchComponent
+{
+    var Idle : Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsUp(Keys.Up) &&
+           Zero.Keyboard.KeyIsUp(Keys.Down) &&
+           Zero.Keyboard.KeyIsUp(Keys.Left) &&
+           Zero.Keyboard.KeyIsUp(Keys.Right))
+        {
+            this.Idle = true;
+        }
+        
+        if(this.Idle == true)
+        {
+            //this.Owner.Sprite.Visible = true;
+            //this.Owner.Sprite.AnimationSpeed = 1;
+            
+            var anipos = 0;
+            this.Space.FindObjectByName("Player").Sprite.CurrentFrame = anipos;
+            
+            var playerpos = Real3(0, 0, 0);
+            this.Space.FindObjectByName("Player").Transform.Translation = playerpos;
+            
+            if(anipos == 0 || anipos == 8)
+            {
+                this.Owner.Transform.Translation = playerpos;
+            }
+            if(anipos == 1 || anipos == 7)
+            {
+                this.Owner.Transform.Translation = playerpos;
+                this.Owner.Transform.Translation.Y += 0.015;
+            }
+        }
+    }
+}

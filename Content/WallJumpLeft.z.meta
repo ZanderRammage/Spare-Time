@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WallJumpLeft",
+		uint64 ResourceId = 56b82b29dd0a08c1,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"WallJump",
+		],
+	},
+},

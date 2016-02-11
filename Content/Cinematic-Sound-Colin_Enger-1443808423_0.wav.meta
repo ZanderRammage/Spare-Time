@@ -1,0 +1,11 @@
+AudioContent = 
+{
+	SoundBuilder = 
+	{
+		string Name = "Cinematic-Sound-Colin_Enger-1443808423_0",
+		uint64 ResourceId = 56a6f449f5aaf470,
+		bool Compressed = true,
+		uint Quality = 100,
+		SoundLoadType LoadType = Decompress,
+	},
+},

@@ -1,0 +1,53 @@
+class PlayerMovement : ZilchComponent
+{
+    var JumpCount : Integer = 0;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var movement = Real3(0.0, 0.0, 0.0);
+        var left = this.Space.FindObjectByName("WJPLeft").WallJumpLeft.Left;
+        var right = this.Space.FindObjectByName("WJPRight").WallJumpRight.Right;
+        Console.WriteLine("`right` | `left`");
+        if(Zero.Keyboard.KeyIsPressed(Keys.Space) && this.JumpCount < 1)
+        {
+            this.Owner.SweptController.JumpUnconditionally();
+            this.JumpCount +=1;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            movement.X += 1;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            movement.X -= 1;
+        }
+        
+        if(this.Owner.SweptController.Grounded)
+        {
+            this.JumpCount = 0;
+        }
+        
+        if(left == true && Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            this.Owner.SweptController.JumpDirectionally(Real3(-5, 0, 0));
+            this.JumpCount += 1;
+        }
+        
+        if(right == true && Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            this.Owner.SweptController.JumpDirectionally(Real3(5, 0, 0));
+            this.JumpCount += 1;
+        }
+        
+        this.Owner.SweptController.Update(movement, event.Dt);
+    }
+}

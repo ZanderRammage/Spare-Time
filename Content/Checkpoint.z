@@ -1,0 +1,32 @@
+/*class Checkpoint : ZilchComponent
+{
+    var Checkpoint : Real3 = Real3();
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Checkpoint = this.Space.FindObjectByName("Player").Transform.Translation;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Checkpoint")
+        {
+            this.Checkpoint = event.OtherObject.Transform.Translation;
+        }
+        if(event.OtherObject.BoxCollider.CollisionGroup.Name == "Death")
+        {
+            this.Owner.Transform.Translation = this.Checkpoint;
+        }
+    }
+}
+*/

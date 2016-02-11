@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Spare Time",
+	uint64 LibraryId = 569d238e6ee085b7,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

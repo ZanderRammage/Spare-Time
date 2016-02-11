@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "BackgroundMusic",
+		uint64 ResourceId = 56a6cbd10ff314e1,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Sound",
+		],
+	},
+},

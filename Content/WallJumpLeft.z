@@ -1,0 +1,38 @@
+class WallJumpLeft : ZilchComponent
+{
+    var Left : Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "RightMaze" || event.OtherObject.Name == "LeftMaze" ||
+           event.OtherObject.Name == "P" || event.OtherObject.Name == "L" || event.OtherObject.Name == "A" || event.OtherObject.Name == "Y")
+        {
+            this.Left = true;
+        }
+    }
+    
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "RightMaze" || event.OtherObject.Name == "LeftMaze" ||
+           event.OtherObject.Name == "P" || event.OtherObject.Name == "L" || event.OtherObject.Name == "A" || event.OtherObject.Name == "Y")
+        {
+            this.Left = false;
+        }
+    }
+}

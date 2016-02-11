@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Collide",
+		uint64 ResourceId = 56a6ca9f3451e202,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Sound",
+		],
+	},
+},

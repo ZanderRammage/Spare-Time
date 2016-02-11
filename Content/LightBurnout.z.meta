@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LightBurnout",
+		uint64 ResourceId = 56b82096110b8c2f,
+	},
+},

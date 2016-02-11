@@ -1,0 +1,93 @@
+class MainMenu : ZilchComponent
+{
+    [Property]
+    var Temp : Boolean = false;
+    
+    
+    var Level1 : Level = Level.Find("Level1");
+    //var LevelView : Level = Level.Find("LevelView");
+    //var Options : Level = Level.Find("Options");
+    
+    
+    var SelectedOption : Integer = 0;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var playSelector = this.Space.FindObjectByName("PlaySelector").Sprite.Visible;      //0
+        var levelSelector = this.Space.FindObjectByName("LevelSelector").Sprite.Visible;    //1
+        var optionSelector = this.Space.FindObjectByName("OptionSelector").Sprite.Visible;  //2
+        
+        if(this.SelectedOption == 0)
+        {
+            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            {
+                this.SelectedOption = 2;
+                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = false;
+                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = true;
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            {
+                this.SelectedOption = 1;
+                this.Space.FindObjectByName("PlaySelector").Sprite.Visible =  false;
+                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = true;
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
+               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            {
+                   //goto first level;
+            }
+        }
+        
+        else if(this.SelectedOption == 1)
+        {
+            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            {
+                this.SelectedOption = 0;
+                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = false;
+                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = true;
+                
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            {
+                this.SelectedOption = 2;
+                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = false;
+                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = true;
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
+               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            {
+                //goto LevelOverview;
+            }
+        }
+        
+        else if(this.SelectedOption == 2)
+        {
+            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            {
+                this.SelectedOption = 1;
+                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = false;
+                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = true;
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            {
+                this.SelectedOption = 0;
+                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = false;
+                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = true;
+            }
+            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
+               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            {
+                //goto options
+            }
+        }
+        
+        Console.WriteLine(this.SelectedOption);
+    }
+}

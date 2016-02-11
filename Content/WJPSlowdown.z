@@ -1,0 +1,50 @@
+class WJPSlowdown : ZilchComponent
+{
+    var LSlow : Boolean = false;
+    var RSlow : Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "WJPLeft" && Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            this.Owner.SweptController.Gravity = 3;
+        }
+        else if(event.OtherObject.Name == "WJPLeft" && !Zero.Keyboard.KeyIsDown(Keys.Left))
+        {
+            this.Owner.SweptController.Gravity = 10;
+        }
+        
+        if(event.OtherObject.Name == "WJPRight" && Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            this.Owner.SweptController.Gravity = 3;
+        }
+        else if(event.OtherObject.Name == "WJPRight" && !Zero.Keyboard.KeyIsDown(Keys.Right))
+        {
+            this.Owner.SweptController.Gravity = 10;
+        }
+    }
+    
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "WJPLeft" || event.OtherObject.Name == "WJPRight")
+        {
+            this.Owner.SweptController.Gravity = 10;
+        }
+    }
+}
