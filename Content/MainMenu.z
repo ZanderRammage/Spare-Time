@@ -5,8 +5,8 @@ class MainMenu : ZilchComponent
     
     
     var Level1 : Level = Level.Find("Level1");
-    //var LevelView : Level = Level.Find("LevelView");
-    //var Options : Level = Level.Find("Options");
+    var LevelView : Level = Level.Find("LevelOverview");
+    var Options : Level = Level.Find("Options");
     
     
     var SelectedOption : Integer = 0;
@@ -20,7 +20,6 @@ class MainMenu : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var playSelector = this.Space.FindObjectByName("PlaySelector").Sprite.Visible;      //0
         var levelSelector = this.Space.FindObjectByName("LevelSelector").Sprite.Visible;    //1
         var optionSelector = this.Space.FindObjectByName("OptionSelector").Sprite.Visible;  //2
         
@@ -41,7 +40,7 @@ class MainMenu : ZilchComponent
             if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
                Zero.Keyboard.KeyIsPressed(Keys.Enter))
             {
-                   //goto first level;
+                   this.Space.LoadLevel(this.Level1);
             }
         }
         
@@ -63,7 +62,7 @@ class MainMenu : ZilchComponent
             if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
                Zero.Keyboard.KeyIsPressed(Keys.Enter))
             {
-                //goto LevelOverview;
+                this.Space.LoadLevel(this.LevelView);
             }
         }
         
@@ -84,7 +83,7 @@ class MainMenu : ZilchComponent
             if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
                Zero.Keyboard.KeyIsPressed(Keys.Enter))
             {
-                //goto options
+                this.Space.LoadLevel(this.Options);
             }
         }
         

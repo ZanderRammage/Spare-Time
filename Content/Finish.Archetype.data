@@ -8,15 +8,19 @@ Cog =
 	{
 		string Name = "Finish",
 	},
+	Archetyped = 
+	{
+		string Name = "56a598c716f2873e:Finish",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [1.24340701, -12.2080135, 0],
+		Vec3 Translation = [0, -32, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,

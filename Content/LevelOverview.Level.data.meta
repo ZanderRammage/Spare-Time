@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Level10",
-		uint64 ResourceId = 56a59a9194b69c32,
+		string Name = "LevelOverview",
+		uint64 ResourceId = 56d88c54e56e0adf,
 		string LoaderType = "Level",
 		uint Version = 0,
 		bool ShowInEditor = true,

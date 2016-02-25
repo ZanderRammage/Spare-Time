@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.704099655, 26.8388844, 0],
+		Vec3 Translation = [1.5050739, 32.016571, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -48,18 +48,6 @@ Cog =
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
-	PlayerMovement = 
-	{
-	},
-	WJPSlowdown = 
-	{
-	},
-	Checkpoint = 
-	{
-	},
-	NextLevel = 
-	{
-	},
 	CapsuleCollider = 
 	{
 		bool Ghost = false,
@@ -71,6 +59,9 @@ Cog =
 		float Radius = 0.319999993,
 		float Height = 0.400000006,
 		uint Direction = 1,
+	},
+	CustomCollisionEventTracker = 
+	{
 	},
 	SweptController = 
 	{
@@ -95,10 +86,16 @@ Cog =
 		float GroundTraction = 1,
 		float AirTraction = 1,
 	},
+	PlayerMovement = 
+	{
+	},
 	Collide = 
 	{
 	},
-	CustomCollisionEventTracker = 
+	WJPSlowdown = 
+	{
+	},
+	NextLevel = 
 	{
 	},
 	Hierarchy = 

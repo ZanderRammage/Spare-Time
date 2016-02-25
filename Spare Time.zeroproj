@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "\\student\student$\16.Zander.Rammage\My Documents\ZeroProjects\Spare-Time",
+		string ProjectFolder = "C:\Users\16.Zander.Rammage\Desktop\GitHub\Spare-Time",
 		uint ProjectEngineRevision = 12624,
 		bool AutoTakeProjectScreenshot = true,
 	},

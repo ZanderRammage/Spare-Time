@@ -1,0 +1,26 @@
+class Restart : ZilchComponent
+{
+    var Level1 : Level = Level.Find("Level1");
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.R)
+        {
+            this.Space.LoadLevel(this.Level1);
+        }
+    }
+}

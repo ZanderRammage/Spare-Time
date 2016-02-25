@@ -1,0 +1,29 @@
+class Death : ZilchComponent
+{
+    var Lives : Integer = 3;
+    var GameOver : Level = Level.Find("Dead");
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Lives <= 0)
+        {
+            this.Space.LoadLevel(this.GameOver);
+        }
+    }
+    
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player")
+        {
+            this.Lives -= 1;
+            this.Space.ReloadLevel();
+        }
+    }
+}

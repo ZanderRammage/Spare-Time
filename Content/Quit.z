@@ -1,0 +1,23 @@
+class Quitasdf : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+    
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Q)
+        {
+            this.GameSession.Quit();
+        }
+    }
+}

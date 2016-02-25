@@ -9,8 +9,6 @@ class NextLevel : ZilchComponent
     var Level6 : Level = Level.Find("Level6");
     var Level7 : Level = Level.Find("Level7");
     var Level8 : Level = Level.Find("Level8");
-    var Level9 : Level = Level.Find("Level9");
-    var Level10 : Level = Level.Find("Level10");
     
     
     function Initialize(init : CogInitializer)
@@ -57,14 +55,6 @@ class NextLevel : ZilchComponent
             if(this.CurrentLevel == "Level7")
             {
                 this.Space.LoadLevel(this.Level8);
-            }
-            if(this.CurrentLevel == "Level7")
-            {
-                this.Space.LoadLevel(this.Level9);
-            }
-            if(this.CurrentLevel == "Level7")
-            {
-                this.Space.LoadLevel(this.Level10);
             }
         }
     }
