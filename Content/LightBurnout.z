@@ -10,7 +10,7 @@ class LightBurnout : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.Owner.Sprite.Color.W);
+        //Console.WriteLine(this.Owner.Sprite.Color.W);
         var temp = 0.0;
         temp -= 0.01;
         this.Owner.Sprite.Color.W = temp;

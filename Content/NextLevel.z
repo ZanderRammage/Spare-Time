@@ -20,7 +20,7 @@ class NextLevel : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.CurrentLevel);
+        //Console.WriteLine(this.CurrentLevel);
     }
     
     

@@ -1,0 +1,39 @@
+class SpawnBreadcrumb : ZilchComponent
+{
+    var Breadcrumb : Real;
+    var Timer : Real = 0;
+    var Pause : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Breadcrumb = this.Space.FindObjectByName("Breadcrumb").Breadcrumbs.Timer;
+        if(this.Pause == false)
+        {
+            this.Timer += event.Dt;
+        }
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Z))
+        {
+            this.Pause = false;
+            Console.WriteLine("NOPE");
+            if(this.Breadcrumb > 0 && this.Timer >= 0.5)
+            {
+                var archeToSpawn = Archetype.Find("Breadcrumb");
+                var spawnPos = this.Space.FindObjectByName("Player").Transform.Translation;
+                spawnPos.Y += 1;
+                this.Space.CreateAtPosition(archeToSpawn, spawnPos);
+                Console.WriteLine("YEP");
+                this.Timer = 0;
+            }
+        }
+        else if(Zero.Keyboard.KeyIsReleased(Keys.Z))
+        {
+            this.Pause = true;
+        }
+    }
+}

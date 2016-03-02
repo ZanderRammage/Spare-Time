@@ -103,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.95922232, 25.4174652, 50],
+			Vec3 Translation = [2.60073256, -13.2190924, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -115,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 6.02388763,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -123,7 +123,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [3.95922232, 25.4174652, 1.73063171e-007],
+			Vec3 LookTarget = [2.60073256, -13.2190924, 1.13681722e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -164,6 +164,9 @@ Level =
 		SoundListener = 
 		{
 			bool Active = true,
+		},
+		CameraFollow = 
+		{
 		},
 	},
 	ArchetypeInstance = 

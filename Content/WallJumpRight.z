@@ -23,7 +23,6 @@ class WallJumpRight : ZilchComponent
            event.OtherObject.Name == "P" || event.OtherObject.Name == "L" || event.OtherObject.Name == "A" || event.OtherObject.Name == "Y")
         {
             this.Right = true;
-            Console.WriteLine("Please?");
         }
     }
     
@@ -33,7 +32,7 @@ class WallJumpRight : ZilchComponent
         if(event.OtherObject.Name == "RightMaze" || event.OtherObject.Name == "LeftMaze" ||
            event.OtherObject.Name == "P" || event.OtherObject.Name == "L" || event.OtherObject.Name == "A" || event.OtherObject.Name == "Y")
         {
-            Console.WriteLine("No");
+            //Console.WriteLine("No");
             this.Right = false;
         }
     }

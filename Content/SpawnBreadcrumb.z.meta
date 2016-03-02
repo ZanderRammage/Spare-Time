@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SpawnBreadcrumb",
+		uint64 ResourceId = 56c21279a78f1b33,
+	},
+},

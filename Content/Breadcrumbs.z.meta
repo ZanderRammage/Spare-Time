@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Breadcrumbs",
+		uint64 ResourceId = 56c21be19e52b531,
+	},
+},

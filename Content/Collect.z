@@ -1,20 +1,14 @@
-class Death : ZilchComponent
+class Collect : ZilchComponent
 {
-    var Lives : Integer = 3;
-    var GameOver : Level = Level.Find("Dead");
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
-    
-    
+
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Lives <= 0)
-        {
-            this.Space.LoadLevel(this.GameOver);
-        }
+        
     }
     
     
@@ -22,9 +16,10 @@ class Death : ZilchComponent
     {
         if(event.OtherObject.Name == "Player")
         {
-            this.Lives -= 1;
-            this.Space.ReloadLevel();
-            Console.WriteLine("HELP!");
+            this.Owner.Destroy();
+            var timer = this.Space.FindObjectByName("Breadcrumb").Breadcrumbs.Timer;
+            timer += 0.5;
+            this.Space.FindObjectByName("Breadcrumb").Breadcrumbs.Timer = timer;
         }
     }
 }

@@ -14,7 +14,7 @@ class PlayerMovement : ZilchComponent
         var movement = Real3(0.0, 0.0, 0.0);
         var left = this.Space.FindObjectByName("WJPLeft").WallJumpLeft.Left;
         var right = this.Space.FindObjectByName("WJPRight").WallJumpRight.Right;
-        Console.WriteLine("`right` | `left`");
+        //Console.WriteLine(" Player Movement - `right` | `left`");
         if(Zero.Keyboard.KeyIsPressed(Keys.Space) && this.JumpCount < 1)
         {
             this.Owner.SweptController.JumpUnconditionally();

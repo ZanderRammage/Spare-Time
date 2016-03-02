@@ -103,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.905197501, -18.4370785, 49.2490005],
+			Vec3 Translation = [-1.50687361, -12.3647366, 49.2490005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -115,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 90.483757,
+			float Size = 7.42738008,
 		},
 		EditorCameraController = 
 		{
@@ -123,7 +123,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.905197501, -18.4370785, -0.750999868],
+			Vec3 LookTarget = [-1.50687361, -12.3647366, -0.750999868],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -310,8 +310,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.23211992, -12.0952778, -0.750999451],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [1.19343555, -12.0952778, -0.750999451],
+			Vec3 Scale = [2, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 

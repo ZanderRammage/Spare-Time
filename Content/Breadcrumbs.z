@@ -1,0 +1,24 @@
+class Breadcrumbs : ZilchComponent
+{
+    [Property]
+    var Timer : Real = 10;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine(this.Timer);
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Z) && this.Timer > 0)
+        {
+            this.Timer -= event.Dt;
+            var temp = this.Timer;
+        }
+        this.Owner.Area.Size = Real2(this.Timer, 1);
+    }
+}

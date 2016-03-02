@@ -14,7 +14,7 @@ class Collide : ZilchComponent
     {
         if(event.OtherObject.Name == "LeftMaze" || event.OtherObject.Name == "RightMaze")
         {
-            Console.WriteLine("HI");
+            //Console.WriteLine("HI");
             this.Space.SoundSpace.PlayCue(SoundCue.Find("Collision"));
         }
     }

@@ -1,14 +1,9 @@
 class MainMenu : ZilchComponent
 {
-    [Property]
-    var Temp : Boolean = false;
-    
-    
     var Level1 : Level = Level.Find("Level1");
     var LevelView : Level = Level.Find("LevelOverview");
     var Options : Level = Level.Find("Options");
-    
-    
+    var Help : Level = Level.Find("Help");
     var SelectedOption : Integer = 0;
     
     
@@ -20,73 +15,125 @@ class MainMenu : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
+        var playSelector = this.Space.FindObjectByName("PlaySelector").Sprite.Visible;      //0
         var levelSelector = this.Space.FindObjectByName("LevelSelector").Sprite.Visible;    //1
         var optionSelector = this.Space.FindObjectByName("OptionSelector").Sprite.Visible;  //2
-        
+        var helpSelector = this.Space.FindObjectByName("HelpSelector").Sprite.Visible;      //3
+        var up = Zero.Keyboard.KeyIsPressed(Keys.W) || Zero.Keyboard.KeyIsPressed(Keys.Up);
+        var down = Zero.Keyboard.KeyIsPressed(Keys.D) || Zero.Keyboard.KeyIsPressed(Keys.Down);
+        var enter = Zero.Keyboard.KeyIsPressed(Keys.Enter) || Zero.Keyboard.KeyIsPressed(Keys.Space);
+/*------------------------------------------------------------------------Play Selected------------------------------------------------------------------------*/
+        //If Play Game is selected
         if(this.SelectedOption == 0)
         {
-            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            //If the Up arrow key is pressed
+            if(up)
             {
-                this.SelectedOption = 2;
-                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = false;
-                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = true;
+                //Select Options
+                this.SelectedOption = 3;
+                playSelector = false;
+                helpSelector = true;
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            //If the Down arrow key is pressed
+            else if(down)
             {
+                //Select LevelSelect
                 this.SelectedOption = 1;
-                this.Space.FindObjectByName("PlaySelector").Sprite.Visible =  false;
-                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = true;
+                playSelector = false;
+                levelSelector = true;
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
-               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            //If Space or Enter buttons are pressed
+            if(enter)
             {
-                   this.Space.LoadLevel(this.Level1);
+                //Load Level 1
+                this.Space.LoadLevel(this.Level1);
             }
         }
-        
+/*---------------------------------------------------------------------LevelSelect Selected--------------------------------------------------------------------*/
+        //If LevelSelect is selected
         else if(this.SelectedOption == 1)
         {
-            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            //If the Up arrow key is pressed
+            if(up)
             {
+                //Select Play Game
                 this.SelectedOption = 0;
-                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = false;
-                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = true;
+                levelSelector = false;
+                playSelector = true;
                 
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            //If the Down arrow key is pressed
+            else if(down)
             {
+                //Select Options
                 this.SelectedOption = 2;
-                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = false;
-                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = true;
+                levelSelector = false;
+                optionSelector = true;
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
-               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            //If Space or Enter buttons are pressed
+            if(enter)
             {
+                //Load LevelSelect
                 this.Space.LoadLevel(this.LevelView);
             }
         }
-        
+/*-----------------------------------------------------------------------Options Selected----------------------------------------------------------------------*/
+        //If Options is selected
         else if(this.SelectedOption == 2)
         {
-            if(Zero.Keyboard.KeyIsPressed(Keys.Up))
+            //If the Up arrow key is pressed
+            if(up)
             {
+                //Select LevelSelect
                 this.SelectedOption = 1;
-                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = false;
-                this.Space.FindObjectByName("LevelSelector").Sprite.Visible = true;
+                optionSelector = false;
+                levelSelector = true;
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Down))
+            //If the Down arrow key is pressed
+            else if(down)
             {
-                this.SelectedOption = 0;
-                this.Space.FindObjectByName("OptionSelector").Sprite.Visible = false;
-                this.Space.FindObjectByName("PlaySelector").Sprite.Visible = true;
+                this.SelectedOption = 3;
+                optionSelector = false;
+                helpSelector = true;
             }
-            if(Zero.Keyboard.KeyIsPressed(Keys.Space) ||
-               Zero.Keyboard.KeyIsPressed(Keys.Enter))
+            //If Space or Enter buttons are pressed
+            if(enter)
             {
+                //Load Options
                 this.Space.LoadLevel(this.Options);
             }
         }
+/*------------------------------------------------------------------------Help Selected------------------------------------------------------------------------*/
+        //If Help is selected
+        else if(this.SelectedOption == 3)
+        {
+            //If the Up arrow key is pressed
+            if(up)
+            {
+                //Select Options
+                this.SelectedOption = 2;
+                helpSelector = false;
+                optionSelector = true;
+            }
+            //If the Down arrow key is pressed
+            else if(down)
+            {
+                //Select Play Game
+                this.SelectedOption = 0;
+                helpSelector = false;
+                playSelector = true;
+            }
+            //If Space or Enter buttons are pressed
+            if(enter)
+            {
+                //Load Help
+                this.Space.LoadLevel(this.Help);
+            }
+        }
         
-        Console.WriteLine(this.SelectedOption);
+        this.Space.FindObjectByName("PlaySelector").Sprite.Visible = playSelector;      //0
+        this.Space.FindObjectByName("LevelSelector").Sprite.Visible = levelSelector;    //1
+        this.Space.FindObjectByName("OptionSelector").Sprite.Visible = optionSelector;  //2
+        this.Space.FindObjectByName("HelpSelector").Sprite.Visible = helpSelector;      //3
     }
 }
